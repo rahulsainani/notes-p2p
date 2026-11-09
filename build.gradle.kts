@@ -7,4 +7,18 @@ plugins {
     alias(libs.plugins.composeCompiler) apply false
     alias(libs.plugins.kotlinJvm) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
+    alias(libs.plugins.spotless)
+}
+
+spotless {
+    kotlin {
+        target("**/src/**/*.kt")
+        targetExclude("**/build/**")
+        ktlint(libs.versions.ktlint.get())
+            .customRuleSets(listOf(libs.compose.rules.ktlint.get().toString()))
+    }
+    kotlinGradle {
+        target("*.gradle.kts", "*/*.gradle.kts")
+        ktlint(libs.versions.ktlint.get())
+    }
 }

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(*.env)",
+      "Read(.env.*)",
+      "Edit(*.env)",
+      "Edit(.env.*)",
+      "Read(secrets.properties)",
+      "Edit(secrets.properties)",
+      "Read(*.jks)",
+      "Read(*.keystore)"
+    ]
+  }
+}
