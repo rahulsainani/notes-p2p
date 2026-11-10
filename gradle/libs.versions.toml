@@ -18,6 +18,12 @@ material3 = "1.12.0-alpha03"
 turbine = "1.2.1"
 spotless = "8.2.0"
 ktlint = "1.8.0"
+# Bump both Automerge wrappers together; each wraps the Rust core version noted beside it.
+automergeJava = "0.0.9"
+automergeJavaCore = "0.8.0"
+automergeSwift = "0.7.2"
+automergeSwiftCore = "0.7.2"
+spmForKmp = "1.9.7"
 composeRules = "0.5.5"
 
 [libraries]
@@ -42,6 +48,7 @@ compose-uiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-previ
 kotlinx-coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 compose-rules-ktlint = { module = "io.nlopez.compose.rules:ktlint", version.ref = "composeRules" }
+automerge-java = { module = "org.automerge:automerge", version.ref = "automergeJava" }
 kotlinx-coroutinesSwing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 
 [plugins]
@@ -52,3 +59,4 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+spmForKmp = { id = "io.github.frankois944.spmForKmp", version.ref = "spmForKmp" }
