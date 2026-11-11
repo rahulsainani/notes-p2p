@@ -19,3 +19,5 @@ captures
 node_modules/
 /docs/plans/
 .claude/settings.local.json
+.claude/skills/
+.skillshare
