@@ -35,5 +35,6 @@ plugins {
 include(":androidApp")
 include(":automerge-kmp")
 include(":cli")
+include(":core")
 include(":desktopApp")
 include(":shared")
