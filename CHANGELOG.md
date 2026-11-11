@@ -12,3 +12,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 - `automerge-kmp`: one Automerge document API for Android, desktop and iOS, over `automerge-java` and
   `automerge-swift`, with cross-platform fixture tests.
 - `cli` module: `notes --version`.
+- detekt in every module through the `notesp2p.detekt` convention plugin (`./gradlew detektAll`, part
+  of `check`), with type resolution on JVM and Android code.

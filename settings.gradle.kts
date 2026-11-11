@@ -1,6 +1,7 @@
 rootProject.name = "Notesp2p"
 
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             mavenContent {

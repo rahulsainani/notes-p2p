@@ -7,6 +7,6 @@ class SharedLogicAndroidHostTest {
 
     @Test
     fun example() {
-        assertEquals(3, 1 + 2)
+        assertEquals(2, 1 + 1)
     }
 }

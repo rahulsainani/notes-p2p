@@ -6,11 +6,14 @@
 
 - Build, test and lint only through `gq` with the tasks from `README.md`, e.g. `gq spotlessCheck`,
   `gq :shared:jvmTest`. Never raw `./gradlew`.
+- Static analysis: `gq detektAll`. A finding is fixed, or suppressed with `@Suppress("RuleId")` and a
+  comment with the reason. `gq detektBaselineAll` only on request.
 
 ## Gradle
 
 - AGP 9 rule: `androidApp` uses `com.android.application` only, never the KMP plugin. Shared code goes
   in `shared`, a KMP library (`com.android.kotlin.multiplatform.library`).
+- Every Kotlin module applies `id("notesp2p.detekt")` (convention plugin in `build-logic/`).
 - Versions live in `gradle/libs.versions.toml`. The Gradle daemon runs on JetBrains JDK 21
   (`gradle/gradle-daemon-jvm.properties`).
 

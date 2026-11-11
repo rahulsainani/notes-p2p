@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinJvm)
     application
+    id("notesp2p.detekt")
 }
 
 version = "0.1.0"

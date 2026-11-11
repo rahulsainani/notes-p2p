@@ -19,7 +19,7 @@ spotless {
             .customRuleSets(listOf(libs.compose.rules.ktlint.get().toString()))
     }
     kotlinGradle {
-        target("*.gradle.kts", "*/*.gradle.kts")
+        target("*.gradle.kts", "*/*.gradle.kts", "build-logic/**/*.gradle.kts")
         ktlint(libs.versions.ktlint.get())
     }
 }

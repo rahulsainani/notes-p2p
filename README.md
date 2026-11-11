@@ -38,6 +38,13 @@ From the command line:
 - Automerge on every platform: `./gradlew :automerge-kmp:jvmTest :automerge-kmp:testAndroidHostTest
   :automerge-kmp:iosSimulatorArm64Test`
 - Code style: `./gradlew spotlessCheck` (fix with `./gradlew spotlessApply`)
+- Static analysis: `./gradlew detektAll`; `./gradlew check` includes it ([details](docs/StaticAnalysis.md))
+
+## Docs
+
+| Doc                                              | Topic                                            |
+|--------------------------------------------------|--------------------------------------------------|
+| [docs/StaticAnalysis.md](docs/StaticAnalysis.md) | Spotless and detekt: what each checks, baselines |
 
 ## Tech stack
 

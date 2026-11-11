@@ -1,0 +1,69 @@
+# Overrides on top of the detekt default config (buildUponDefaultConfig).
+# Only changed values belong here; every other rule keeps its default.
+
+complexity:
+  LongParameterList:
+    # Compose: optional parameters with defaults are the normal API shape of a composable.
+    ignoreDefaultParameters: true
+  TooManyFunctions:
+    ignoreAnnotatedFunctions: ['Preview']
+
+coroutines:
+  SuspendFunSwallowedCancellation:
+    active: true
+
+naming:
+  FunctionNaming:
+    # Composables that emit UI are PascalCase.
+    ignoreAnnotated: ['Composable']
+  TopLevelPropertyNaming:
+    # SCREAMING_CASE (Kotlin style guide) and PascalCase (Compose guidelines) both pass.
+    constantPattern: '[A-Z][_A-Za-z0-9]*'
+
+potential-bugs:
+  MissingUseCall:
+    active: true
+
+style:
+  ForbiddenAnnotation:
+    active: true
+    annotations:
+      - reason: 'opt in through compilerOptions.optIn in the module build file.'
+        value: 'kotlin.OptIn'
+      - reason: 'it is a java annotation. Use `Suppress` instead.'
+        value: 'java.lang.SuppressWarnings'
+      - reason: 'it is a java annotation. Use `kotlin.Deprecated` instead.'
+        value: 'java.lang.Deprecated'
+      - reason: 'it is a java annotation. Use `kotlin.annotation.MustBeDocumented` instead.'
+        value: 'java.lang.annotation.Documented'
+      - reason: 'it is a java annotation. Use `kotlin.annotation.Target` instead.'
+        value: 'java.lang.annotation.Target'
+      - reason: 'it is a java annotation. Use `kotlin.annotation.Retention` instead.'
+        value: 'java.lang.annotation.Retention'
+      - reason: 'it is a java annotation. Use `kotlin.annotation.Repeatable` instead.'
+        value: 'java.lang.annotation.Repeatable'
+  ForbiddenImport:
+    active: true
+    forbiddenImports:
+      - reason: 'icons are vector drawables in Compose resources.'
+        value: 'androidx.compose.material.icons.*'
+  UnusedPrivateFunction:
+    # Previews are called by the IDE only.
+    ignoreAnnotated: ['Preview']
+  # A second ForbiddenImport instance, for domain/ packages only: dependencies point inward.
+  ForbiddenImport/domain:
+    active: true
+    includes: ['**/domain/**']
+    forbiddenImports:
+      - reason: 'domain/ does not depend on data/.'
+        value: '**.data.**'
+      - reason: 'domain/ does not depend on UI.'
+        value: '**.ui.**'
+      - reason: 'domain/ holds no Automerge types.'
+        value: 'app.droidster.automerge.**'
+      - reason: 'domain/ holds no Automerge types.'
+        value: 'org.automerge.**'
+      - reason: 'domain/ imports no framework library.'
+        value: 'androidx.**'
+      - reason: 'domain/ imports no framework library.'
+        value: 'org.jetbrains.compose.**'

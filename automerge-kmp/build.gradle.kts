@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.spmForKmp)
+    id("notesp2p.detekt")
 }
 
 // The wrapper versions come from the version catalog only, so code and build cannot disagree.
