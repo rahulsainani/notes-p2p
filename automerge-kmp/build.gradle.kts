@@ -31,6 +31,7 @@ val generateBindingVersions by tasks.registering {
 }
 
 kotlin {
+    explicitApi()
     applyDefaultHierarchyTemplate {
         common {
             group("jvmAndroid") {

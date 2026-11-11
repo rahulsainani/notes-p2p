@@ -14,7 +14,7 @@ class FixtureTest {
 
     @Test
     fun currentBindingHasFixture() {
-        val id = bindingId
+        val id = "$bindingId/$FIXTURE_CONTENT"
 
         assertTrue(
             id in fixtures,
@@ -26,14 +26,23 @@ class FixtureTest {
     @Test
     fun everyFixtureLoadsOnThisPlatform() {
         val loaded = fixtures.mapValues { (_, encoded) ->
-            AutomergeDocument(Base64.decode(encoded)).use { it.getStringOrNull(FIXTURE_KEY) }
+            AutomergeDocument(Base64.decode(encoded)).use { it.snapshot() }
         }
 
-        assertEquals(fixtures.mapValues { FIXTURE_VALUE }, loaded)
+        assertEquals(fixtures.mapValues { (id, _) -> fixtureContents.getValue(id.substringAfter('/')) }, loaded)
     }
 
     private fun createFixtureDocument(): ByteArray = AutomergeDocument().use { document ->
-        document.putString(FIXTURE_KEY, FIXTURE_VALUE)
+        document.transact { tx ->
+            tx.put(tx.root, "string", FIXTURE_VALUE)
+            tx.put(tx.root, "integer", 1_762_600_000_000)
+            tx.put(tx.root, "boolean", true)
+            tx.putNull(tx.root, "null")
+            val map = tx.putObject(tx.root, "map", ObjType.MAP)
+            val text = tx.putText(map, "text", FIXTURE_TEXT)
+            tx.mark(text, 0, 2, "bold", true, ExpandMark.AFTER)
+            tx.mark(text, 0, FIXTURE_TEXT_LENGTH, "heading", 2, ExpandMark.NONE)
+        }
         document.save()
     }
 }

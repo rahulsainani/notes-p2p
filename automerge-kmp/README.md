@@ -28,13 +28,49 @@ klib, so a consumer framework links it with no Xcode setup.
 
 ```kotlin
 val saved = AutomergeDocument().use { document ->
-    document.putString("title", "Groceries")
+    document.transact { tx ->
+        tx.put(tx.root, "colour", "sage")
+        val title = tx.putObject(tx.root, "title", ObjType.TEXT)
+        tx.spliceText(title, 0, 0, "Groceries")
+        tx.mark(title, 0, 9, "bold", true, ExpandMark.AFTER)
+    }
     document.save()
 }
-val title = AutomergeDocument(saved).use { it.getStringOrNull("title") } // "Groceries", on any platform
+AutomergeDocument(saved).use { document ->
+    val title = document.getObject(document.root, "title", ObjType.TEXT)
+    title?.let(document::text) // "Groceries", on any platform
+}
 ```
 
+| API                                                               | Use                                                                                                                                |
+|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| `transact { }`                                                    | All writes of one block are one Automerge change                                                                                   |
+| `transactAt(heads) { }`                                           | One change on the document as it was at `heads`, for an editor that shows that older state. Returns the heads of the state it made |
+| `get`, `getAll`, `keys`, `text`, `marks`                          | Reads; `getAll` returns every value of a conflict                                                                                  |
+| `getString`, `getLong`, `getBoolean`, `getObject`                 | Typed reads; `null` when the key is missing or holds another type                                                                  |
+| `heads()`                                                         | Sorted change hashes. Equal heads mean equal documents                                                                             |
+| `merge(other)`, `save()`                                          | Set union of changes; full bytes with history                                                                                      |
+| `AutomergeDocument(actorId)`, `AutomergeDocument(bytes, actorId)` | The actor that signs new changes                                                                                                   |
+
 `close()` frees the native document on JVM and Android; on iOS, ARC frees it.
+
+## Behaviour of the wrappers
+
+Tests in `commonTest` guard text positions, integers, actors, marks and changes at past heads on
+all three platforms.
+
+| Fact                                                                                                                                                                                   | Effect on the API                                                                                                                                                   |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Both wrappers count text positions in Unicode code points. Kotlin strings count UTF-16 units                                                                                           | Positions in `spliceText`, `mark` and `Mark` are code points. The caller converts; an emoji is 1 position and 2 `Char`s                                             |
+| Neither wrapper has a list move                                                                                                                                                        | The API has no lists. An ordered set is a map with an order key per entry                                                                                           |
+| `automerge-java` 0.0.9 stores `NewValue.integer(long)` as a float                                                                                                                      | `put(Long)` writes an int, or a uint above `Int.MAX_VALUE`. A value below `Int.MIN_VALUE` throws on JVM and Android                                                 |
+| `automerge-java` cannot set the actor of a loaded document                                                                                                                             | The JVM actual loads, then forks with the actor                                                                                                                     |
+| `automerge-java` writes at past heads (`startTransactionAt`), also at heads that the document does not hold. `automerge-swift` can only fork at past heads, and a fork has a new actor | `transactAt` on JVM checks the heads with a fork first and keeps the document's actor. On iOS it forks, changes and merges; each such change has a new random actor |
+| Two changes of one actor with one sequence number do not merge: both wrappers fail with "duplicate seq"                                                                                | Two documents never write with one actor. A fork on iOS therefore never gets the document's actor                                                                   |
+| The public API of neither wrapper has block markers                                                                                                                                    | Paragraph formats such as headings are marks on a range                                                                                                             |
+| `automerge-swift` has no unmark and no explicit transaction                                                                                                                            | `unmark` writes a null mark. On iOS a failing `transact` block keeps the writes made before the failure; on JVM it rolls back                                       |
+| A put of the value that is already there is still a change                                                                                                                             | Callers that must not cause a sync compare first                                                                                                                    |
+| Objective-C cannot express `throws` with an optional or primitive result                                                                                                               | The bridge returns a `kindMissing` value for a missing key, and objects instead of numbers                                                                          |
 
 ## Wrapper versions
 
