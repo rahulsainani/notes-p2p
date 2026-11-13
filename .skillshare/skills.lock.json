@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "skills": {
+    "adaptive": {
+      "source": "github.com/android/skills/jetpack-compose/adaptive",
+      "commit": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "tree_hash": "fc4ab1b8ccc64b2e0568b8495bd39b33d45de6bf"
+    },
+    "android-benchmark-comparison": {
+      "source": "github.com/chrisbanes/skills/skills/android-benchmark-comparison",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "82f9b07d6fb0601ff30b1e6ad0ad68b6a7d054e2"
+    },
+    "android-cli": {
+      "source": "github.com/android/skills/devtools/android-cli",
+      "commit": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "tree_hash": "47dd4e2ff6df26bad01445e5582e2e4114c95737"
+    },
+    "android-intent-security": {
+      "source": "github.com/android/skills/security/android-intent-security",
+      "commit": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "tree_hash": "5a02ec4da4744daa055d95010d782eb47f0d5da4"
+    },
+    "android-permissions-security": {
+      "source": "github.com/android/skills/security/android-permissions-security",
+      "commit": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "tree_hash": "1149f87d23ae999b5863510f15eba2882827e4d8"
+    },
+    "changelog": {
+      "source": "github.com/chrisbanes/skills/skills/changelog",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "37c6abed56ea5a0e589da6e68f371a0ef368bf56"
+    },
+    "compose-animations": {
+      "source": "github.com/chrisbanes/skills/skills/compose-animations",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "5958e37f613f0f893c908df533c44219713fbdf4"
+    },
+    "compose-component-design": {
+      "source": "github.com/chrisbanes/skills/skills/compose-component-design",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "8909bcd0ef9d764d1e4c2783045bb62bf635315b"
+    },
+    "compose-focus-navigation": {
+      "source": "github.com/chrisbanes/skills/skills/compose-focus-navigation",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "79866da141941307bb1f5becc01095b8785e76b1"
+    },
+    "compose-performance": {
+      "source": "github.com/chrisbanes/skills/skills/compose-performance",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "0f2f52478d0a055c7838c9c9190292b8a1804425"
+    },
+    "compose-state-and-effects": {
+      "source": "github.com/chrisbanes/skills/skills/compose-state-and-effects",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "52262619051b97f9e5b6b1423357ad8e58f583f3"
+    },
+    "compose-ui-testing-patterns": {
+      "source": "github.com/chrisbanes/skills/skills/compose-ui-testing-patterns",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "f8e58396e4c28efba5b0349bc677b0a0e0a1e299"
+    },
+    "edge-to-edge": {
+      "source": "github.com/android/skills/system/edge-to-edge",
+      "commit": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "tree_hash": "5536a0a5484c7bd7d27a7d12e3dff268527d185f"
+    },
+    "jetpack-compose-performance": {
+      "source": "github.com/android/skills/jetpack-compose/jetpack-compose-performance",
+      "commit": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "tree_hash": "ba61c17565d2ec7ef65a7d81261fb50d182d9790"
+    },
+    "kotlin-api-design": {
+      "source": "github.com/chrisbanes/skills/skills/kotlin-api-design",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "c539977b09aa0c5b0962bf4c64b47005c6e5a5d7"
+    },
+    "kotlin-concurrency-and-flow": {
+      "source": "github.com/chrisbanes/skills/skills/kotlin-concurrency-and-flow",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "efe20216b08041bdaa60074cf7409ef9948a0ec0"
+    },
+    "kotlin-control-flow": {
+      "source": "github.com/chrisbanes/skills/skills/kotlin-control-flow",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "5e79acf3ef0a04e0d5a1fdd7edef214e3e9cc2fb"
+    },
+    "release-kotlin-library": {
+      "source": "github.com/chrisbanes/skills/skills/release-kotlin-library",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "c3dc23a1f3225a319fc2adb44daeea175cecb513"
+    },
+    "testing-setup": {
+      "source": "github.com/android/skills/testing/testing-setup",
+      "commit": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "tree_hash": "b027adb15a2ade0283be85c16a9a2a829ab4fa7e"
+    },
+    "using-chrisbanes-skills": {
+      "source": "github.com/chrisbanes/skills/skills/using-chrisbanes-skills",
+      "commit": "50d54366e577460b769ce05b50da007de9939783",
+      "tree_hash": "226d8c6d64965a2a32c567b27e3dcab7e5153968"
+    }
+  }
+}

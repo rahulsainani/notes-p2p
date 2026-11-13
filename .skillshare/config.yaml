@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/runkids/skillshare/main/schemas/project-config.schema.json
+
+targets:
+  - claude
+
+skills:
+  - name: android-benchmark-comparison
+    source: github.com/chrisbanes/skills/skills/android-benchmark-comparison
+  - name: changelog
+    source: github.com/chrisbanes/skills/skills/changelog
+  - name: compose-animations
+    source: github.com/chrisbanes/skills/skills/compose-animations
+  - name: compose-component-design
+    source: github.com/chrisbanes/skills/skills/compose-component-design
+  - name: compose-focus-navigation
+    source: github.com/chrisbanes/skills/skills/compose-focus-navigation
+  - name: compose-performance
+    source: github.com/chrisbanes/skills/skills/compose-performance
+  - name: compose-state-and-effects
+    source: github.com/chrisbanes/skills/skills/compose-state-and-effects
+  - name: compose-ui-testing-patterns
+    source: github.com/chrisbanes/skills/skills/compose-ui-testing-patterns
+  - name: kotlin-api-design
+    source: github.com/chrisbanes/skills/skills/kotlin-api-design
+  - name: kotlin-concurrency-and-flow
+    source: github.com/chrisbanes/skills/skills/kotlin-concurrency-and-flow
+  - name: kotlin-control-flow
+    source: github.com/chrisbanes/skills/skills/kotlin-control-flow
+  - name: release-kotlin-library
+    source: github.com/chrisbanes/skills/skills/release-kotlin-library
+  - name: using-chrisbanes-skills
+    source: github.com/chrisbanes/skills/skills/using-chrisbanes-skills
+  - name: adaptive
+    source: github.com/android/skills/jetpack-compose/adaptive
+  - name: android-cli
+    source: github.com/android/skills/devtools/android-cli
+  - name: android-intent-security
+    source: github.com/android/skills/security/android-intent-security
+  - name: android-permissions-security
+    source: github.com/android/skills/security/android-permissions-security
+  - name: edge-to-edge
+    source: github.com/android/skills/system/edge-to-edge
+  - name: jetpack-compose-performance
+    source: github.com/android/skills/jetpack-compose/jetpack-compose-performance
+  - name: testing-setup
+    source: github.com/android/skills/testing/testing-setup
+
+ignore:
+  - .DS_Store
+  - .git/
+  - __pycache__/
+
+audit:
+  block_threshold: CRITICAL
