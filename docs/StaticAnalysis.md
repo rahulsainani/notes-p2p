@@ -56,12 +56,12 @@ The plain `detekt` task is not part of `check`. It reads `src/main` and `src/tes
 
 ## Baselines
 
-A baseline lists known findings. detekt does not report them again. Each task has its own
-baseline file, `<module>/detekt-baselines/<task>.xml`, e.g. `automerge-kmp/detekt-baselines/mainJvm.xml`.
-A module with no findings has no file. `./gradlew detektBaselineAll` rewrites the files of a
-module from its current findings.
+No module has a baseline: `./gradlew detektAll` passes with zero known findings. A baseline lists
+findings that detekt then no longer reports, so it hides them on one machine only.
+`./gradlew detektBaselineAll` writes one, `<module>/detekt-baselines/<task>.xml`; it serves only to
+pause a cleanup and is never committed.
 
-A new finding is fixed, or suppressed in code with the reason:
+A finding is fixed, or suppressed in code at the smallest scope, with the reason:
 
 ```kotlin
 @Suppress("ReturnCount") // Each early return rejects one malformed part of the input.
