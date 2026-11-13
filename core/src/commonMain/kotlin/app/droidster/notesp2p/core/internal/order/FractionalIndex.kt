@@ -1,4 +1,4 @@
-package app.droidster.notesp2p.core.order
+package app.droidster.notesp2p.core.internal.order
 
 import kotlin.random.Random
 
@@ -11,7 +11,7 @@ import kotlin.random.Random
  * `a0` and `a1`. New keys at either end count up or down, so they stay short.
  */
 @Suppress("TooManyFunctions") // One algorithm in base 62; the private functions are its steps.
-public object FractionalIndex {
+internal object FractionalIndex {
     private const val DIGITS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     private const val BASE = 62
     private const val SMALLEST_INTEGER = "A00000000000000000000000000"

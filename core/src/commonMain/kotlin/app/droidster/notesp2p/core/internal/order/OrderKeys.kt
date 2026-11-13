@@ -1,4 +1,4 @@
-package app.droidster.notesp2p.core.order
+package app.droidster.notesp2p.core.internal.order
 
 import kotlin.random.Random
 
