@@ -1,10 +1,7 @@
 # Notes p2p
 
-A local-first notes project in Kotlin Multiplatform. Notes are [Automerge](https://automerge.org)
-documents: a CRDT, a data type that two devices can change offline and then merge with no conflict.
-
-What works today: the note and vault model, order keys and device identity (`core`), over the
-Automerge API (`automerge-kmp`). The Android, iOS and desktop apps are empty scaffolds.
+WIP: A local-first notes project in Kotlin Multiplatform. Notes are [Automerge](https://automerge.org)
+documents, a CRDT, that two devices can change offline and then merge with no conflict.
 
 ## Modules
 
@@ -20,8 +17,7 @@ Automerge API (`automerge-kmp`). The Android, iOS and desktop apps are empty sca
 
 ## Running
 
-Each app has a run configuration in Android Studio (`androidApp`, `desktopApp`, `iosApp`). iOS needs
-Xcode installed, but not open.
+Each app has a run configuration in Android Studio (`androidApp`, `desktopApp`, `iosApp`).
 
 From the command line:
 

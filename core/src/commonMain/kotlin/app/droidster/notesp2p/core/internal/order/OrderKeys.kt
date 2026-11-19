@@ -1,11 +1,19 @@
 package app.droidster.notesp2p.core.internal.order
 
+import app.droidster.notesp2p.core.note.OrderKey
 import kotlin.random.Random
 
 /**
  * One entry of an ordered set: an [id] and its order [key], both as plain text.
  */
-internal data class Ordered(val id: String, val key: String)
+internal data class Ordered(val id: String, val key: String) {
+    companion object {
+        /**
+         * Returns the entry of the note or item [id] at the position [order].
+         */
+        fun of(id: String, order: OrderKey): Ordered = Ordered(id, order.value)
+    }
+}
 
 /**
  * The display order: by key, then by ID, so equal keys sort the same on every device.

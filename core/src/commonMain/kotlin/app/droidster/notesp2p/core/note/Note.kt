@@ -130,7 +130,8 @@ public enum class NoteColour {
 
     public companion object {
         /**
-         * The colour of a new note, and of a note whose stored colour this app version does not know.
+         * The colour of a new note. The note stores this colour itself, so a later change of the default does
+         * not change the notes that exist.
          */
         public val DEFAULT: NoteColour = OAT
     }
